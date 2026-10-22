@@ -48,7 +48,7 @@ function updateTask(task,updates){
 
 }
 
-//testing the updateTask function
+// testing the updateTask function
 const task = {
     title: "Study JavaScript",
     priority: "high"
@@ -61,9 +61,10 @@ const updates = {
 
 console.log(updateTask(task,updates));
 
+
 // deleting tasks
 
-const tasks = [
+let tasks = [
     { id: 1, title: "Study JavaScript" },
     { id: 2, title: "Attend class" },
     { id: 3, title: "Practice coding" }
@@ -71,13 +72,57 @@ const tasks = [
 
 
 function deleteTask(tasks,taskId){
-
-    return tasks.filter((task) =>{
-          return task.id !==taskId;
-     });
-
      
+
+    let tasksAfterDeletion = tasks.filter((task) =>{
+          return task.id !==taskId;
+     }); 
+
+     return tasksAfterDeletion;
 
 }
 
- console.log(deleteTask(tasks,2));
+let remainingTasks = deleteTask(tasks,2);
+ console.log(remainingTasks);
+
+
+
+//  mark as complete:
+function markTaskComplete(task1){
+
+
+     const completedTask = {...task1, completed: true};
+
+     return completedTask;
+
+
+}
+
+// testing completion:
+const task1 = {
+    id: 1,
+    title: "Study JavaScript",
+    completed: false
+};
+
+console.log(markTaskComplete(task1));
+
+
+// completion toggle function:
+
+
+function toggleTaskComplete(task1){
+
+     const objAfterToggle = {
+          ...task1,
+          completed : !task1.completed
+     }
+
+     return objAfterToggle;
+      
+
+}
+
+
+
+console.log(toggleTaskComplete(task1));
