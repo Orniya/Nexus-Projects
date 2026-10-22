@@ -126,3 +126,16 @@ function toggleTaskComplete(task1){
 
 
 console.log(toggleTaskComplete(task1));
+
+
+
+// retrieve tasks:
+function getTaskById(tasks, taskId){
+     const chosenTask = tasks.find((task) => {
+          return task.id === taskId;
+     });
+
+     return chosenTask;
+
+}
+console.log(getTaskById(tasks, 3));
