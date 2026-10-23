@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="description" content="A simple task management application to organize your daily work."> <title>TaskFlow | Task Management</title> <link rel="stylesheet" href="./css/style.css"> <script type="module" src="./js/app.js"></script> </head> <body> <header class="site-header"> <div class="container header-content"> <a href="#" class="logo">Task<span>Flow</span></a> <p class="header-caption">A little progress every day.</p> </div> </header>
+
+<main class="container main-content">
+    <section class="welcome-section">
+        <div>
+            <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+            <h1>Get things done.</h1>
+            <p class="welcome-description">
+                Organize your tasks, track your progress, and focus on what matters.
+            </p>
+        </div>
+    </section>
+
+    <section class="statistics" aria-label="Task statistics">
+        <article class="stat-card">
+            <span class="stat-label">Total tasks</span>
+            <p class="stat-number" id="total-count">0</p>
+            <span class="stat-caption">All your tasks</span>
+        </article>
+
+        <article class="stat-card">
+            <span class="stat-label">Completed</span>
+            <p class="stat-number" id="completed-count">0</p>
+            <span class="stat-caption">Tasks finished</span>
+        </article>
+
+        <article class="stat-card">
+            <span class="stat-label">Pending</span>
+            <p class="stat-number" id="pending-count">0</p>
+            <span class="stat-caption">Still in progress</span>
+        </article>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">PLAN YOUR DAY</p>
+                <h2>Create a task</h2>
+            </div>
+            <span class="section-icon" aria-hidden="true">＋</span>
+        </div>
+
+        <form id="task-form" class="task-form">
+            <div class="form-group">
+                <label for="task-title">Task title <span class="required">*</span></label>
+                <input
+                    type="text"
+                    id="task-title"
+                    name="title"
+                    placeholder="What needs to get done?"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="task-description">Description <span class="optional">(optional)</span></label>
+                <textarea
+                    id="task-description"
+                    name="description"
+                    rows="3"
+                    placeholder="Add a few details..."
+                ></textarea>
+            </div>
+
+            <fieldset class="form-group priority-fieldset">
+                <legend>Priority</legend>
+
+                <div class="priority-options">
+                    <label class="priority-option priority-high">
+                        <input type="radio" name="priority" value="high">
+                        <span class="priority-dot"></span>
+                        High
+                    </label>
+
+                    <label class="priority-option priority-medium">
+                        <input type="radio" name="priority" value="medium" checked>
+                        <span class="priority-dot"></span>
+                        Medium
+                    </label>
+
+                    <label class="priority-option priority-low">
+                        <input type="radio" name="priority" value="low">
+                        <span class="priority-dot"></span>
+                        Low
+                    </label>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="primary-button">
+                <span aria-hidden="true">＋</span> Add task
+            </button>
+
+            <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+    </section>
+
+    <section class="content-section tasks-section">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">STAY ON TRACK</p>
+                <h2>Your tasks</h2>
+            </div>
+        </div>
+
+        <div class="task-controls">
+            <div class="search-wrapper">
+                <label for="search-input" class="visually-hidden">Search tasks</label>
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input
+                    type="search"
+                    id="search-input"
+                    placeholder="Search your tasks..."
+                >
+            </div>
+
+            <div class="filter-wrapper">
+                <label for="filter-select" class="visually-hidden">Filter tasks</label>
+                <select id="filter-select">
+                    <option value="all">All tasks</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="task-list" class="task-list" aria-live="polite">
+            <p class="empty-state">Your tasks will appear here.</p>
+        </div>
+    </section>
+
+    <footer class="page-footer">
+        <p>One task at a time. You've got this.</p>
+    </footer>
+</main>
+
+</body> </html>
